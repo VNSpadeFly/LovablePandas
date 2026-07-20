@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="LoveNote" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/autoload/love_note.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "flowers_100"
+requirement = 2
+requirement_value = 100
+requirement_string = ""
+title = "100 Kirschblüten!"
+message = "100 CherryBlossom hast du gesammelt. Ich hoffe ich gebe dir Erinnerungen, die du gerne sammelst fürs Leben.
+Ich genieße jeden Moment mit dir und hoffe ich kann noch viele Jahre mit dir verbringen. 
+Jeden Tag wächst du und öffnest dich mir. 
+Das bedeutet mir sehr viel.
+Ich hoffe ich kann dich noch laaaaaaange lieben.
+Btw du machst gerade deine Miu Miu Bag. Ich hoffe das klappt. Dein future Ich sollte es wissen.
+Danke für viele Jahre Liebe, danke für deine Zeit.
+Ich freue mich auf unsere Zukunft."

@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://b1gfrqlj3dway"]
+
+[ext_resource type="Script" uid="uid://dmualv7n6m8y1" path="res://scripts/menu/main_menu.gd" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/panda/panda_visual.tscn" id="2"]
+[ext_resource type="Script" uid="uid://3r6uy2vge3ic" path="res://scripts/ui/falling_petals.gd" id="3"]
+
+[node name="MainMenu" type="Control" unique_id=463313895]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1302203097]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(1, 0.94, 0.96, 1)
+
+[node name="FallingPetals" type="Node2D" parent="." unique_id=753441528]
+script = ExtResource("3")
+
+[node name="MalePanda" parent="." unique_id=1619597117 instance=ExtResource("2")]
+position = Vector2(255, 490)
+scale = Vector2(1.6, 1.6)
+
+[node name="FemalePanda" parent="." unique_id=575696902 instance=ExtResource("2")]
+position = Vector2(465, 490)
+scale = Vector2(1.55, 1.55)
+is_female = true
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1898595644]
+layout_mode = 0
+anchor_right = 1.0
+offset_top = 160.0
+offset_bottom = 240.0
+theme_override_colors/font_color = Color(1, 0.55, 0.7, 1)
+theme_override_font_sizes/font_size = 48
+text = "🐼 Panda Love 🌸"
+horizontal_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="." unique_id=1070122387]
+layout_mode = 0
+anchor_right = 1.0
+offset_top = 620.0
+offset_bottom = 680.0
+theme_override_colors/font_color = Color(0.4, 0.35, 0.4, 1)
+theme_override_font_sizes/font_size = 20
+text = "Mein kleines Game für dich Baby"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="StartButton" type="Button" parent="." unique_id=726936004]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_top = 780.0
+offset_right = 160.0
+offset_bottom = 850.0
+theme_override_font_sizes/font_size = 24
+text = "🌸 Lets Go 🌸"

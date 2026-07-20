@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/home/panda_action_menu.gd" id="1"]
+
+[node name="PandaActionMenu" type="PanelContainer"]
+visible = false
+custom_minimum_size = Vector2(200, 0)
+script = ExtResource("1")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+
+[node name="CloseButton" type="Button" parent="VBox"]
+text = "✕"
+
+[node name="FeedButton" type="Button" parent="VBox"]
+text = "🍙 Füttern"
+
+[node name="PlayButton" type="Button" parent="VBox"]
+text = "🎾 Spielen"
+
+[node name="SleepButton" type="Button" parent="VBox"]
+text = "😴 Schlafen legen"
+
+[node name="KissButton" type="Button" parent="VBox"]
+text = "😘 Kuss"

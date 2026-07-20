@@ -1,0 +1,17 @@
+# Godot 4 editor cache -- regenerated automatically, don't commit
+.godot/
+
+# Export output
+android/
+export/
+*.apk
+*.aab
+*.ipa
+
+# Local save data never lives in the repo (it's under the OS user profile),
+# but just in case something writes it here during testing:
+savegame.json
+
+# OS cruft
+.DS_Store
+Thumbs.db

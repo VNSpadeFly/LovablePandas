@@ -1,0 +1,363 @@
+[gd_scene load_steps=20 format=3]
+
+[ext_resource type="Script" path="res://scripts/platformer/level.gd" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/platformer/player.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/platformer/collectible_flower.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://scenes/platformer/touch_controls.tscn" id="4"]
+[ext_resource type="Script" path="res://scripts/platformer/level_end.gd" id="5"]
+[ext_resource type="Texture2D" path="res://assets/sprites/environment/cherry_blossom_parallax/00 - Sky.png" id="6"]
+[ext_resource type="Texture2D" path="res://assets/sprites/environment/cherry_blossom_parallax/01 - Mountains.png" id="7"]
+[ext_resource type="Texture2D" path="res://assets/sprites/environment/cherry_blossom_parallax/02 - Mid Trees.png" id="8"]
+[ext_resource type="Texture2D" path="res://assets/sprites/environment/cherry_blossom_parallax/03 - Front Trees.png" id="9"]
+[ext_resource type="Texture2D" path="res://assets/sprites/environment/cherry_blossom_parallax/04 - Foreground.png" id="10"]
+[ext_resource type="Script" path="res://scripts/platformer/heart_flag.gd" id="11"]
+
+[sub_resource type="RectangleShape2D" id="ground_a"]
+size = Vector2(800, 200)
+
+[sub_resource type="RectangleShape2D" id="ground_b"]
+size = Vector2(790, 200)
+
+[sub_resource type="RectangleShape2D" id="ground_c"]
+size = Vector2(580, 200)
+
+[sub_resource type="RectangleShape2D" id="ground_d"]
+size = Vector2(570, 200)
+
+[sub_resource type="RectangleShape2D" id="platform"]
+size = Vector2(200, 40)
+
+[sub_resource type="RectangleShape2D" id="end"]
+size = Vector2(80, 300)
+
+[sub_resource type="RectangleShape2D" id="fall_zone"]
+size = Vector2(4000, 120)
+
+[node name="Level02" type="Node2D"]
+script = ExtResource("1")
+next_level_path = "res://scenes/platformer/level_03.tscn"
+
+[node name="Background" type="ParallaxBackground" parent="."]
+
+[node name="Sky" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.05, 0.05)
+motion_mirroring = Vector2(2880, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Sky"]
+modulate = Color(1, 0.8, 0.75, 1)
+position = Vector2(1440, 640)
+scale = Vector2(6, 6)
+texture = ExtResource("6")
+
+[node name="Mountains" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.15, 0.15)
+motion_mirroring = Vector2(2880, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Mountains"]
+modulate = Color(1, 0.82, 0.78, 1)
+position = Vector2(1440, 640)
+scale = Vector2(6, 6)
+texture = ExtResource("7")
+
+[node name="MidTrees" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.35, 0.35)
+motion_mirroring = Vector2(2880, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/MidTrees"]
+modulate = Color(1, 0.86, 0.82, 1)
+position = Vector2(1440, 640)
+scale = Vector2(6, 6)
+texture = ExtResource("8")
+
+[node name="FrontTrees" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.55, 0.55)
+motion_mirroring = Vector2(2880, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/FrontTrees"]
+modulate = Color(1, 0.88, 0.84, 1)
+position = Vector2(1440, 640)
+scale = Vector2(6, 6)
+texture = ExtResource("9")
+
+[node name="Foreground" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.75, 0.75)
+motion_mirroring = Vector2(2880, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Foreground"]
+modulate = Color(1, 0.88, 0.84, 1)
+position = Vector2(1440, 640)
+scale = Vector2(6, 6)
+texture = ExtResource("10")
+
+[node name="GroundA" type="StaticBody2D" parent="."]
+position = Vector2(400, 1200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundA"]
+shape = SubResource("ground_a")
+
+[node name="Visual" type="ColorRect" parent="GroundA"]
+offset_left = -400.0
+offset_top = -100.0
+offset_right = 400.0
+offset_bottom = 100.0
+color = Color(0.13, 0.24, 0.31, 1)
+
+[node name="GrassTop" type="ColorRect" parent="GroundA"]
+offset_left = -400.0
+offset_top = -100.0
+offset_right = 400.0
+offset_bottom = -86.0
+color = Color(0.34, 0.55, 0.5, 1)
+
+[node name="GroundB" type="StaticBody2D" parent="."]
+position = Vector2(1405, 1200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundB"]
+shape = SubResource("ground_b")
+
+[node name="Visual" type="ColorRect" parent="GroundB"]
+offset_left = -395.0
+offset_top = -100.0
+offset_right = 395.0
+offset_bottom = 100.0
+color = Color(0.13, 0.24, 0.31, 1)
+
+[node name="GrassTop" type="ColorRect" parent="GroundB"]
+offset_left = -395.0
+offset_top = -100.0
+offset_right = 395.0
+offset_bottom = -86.0
+color = Color(0.34, 0.55, 0.5, 1)
+
+[node name="GroundC" type="StaticBody2D" parent="."]
+position = Vector2(2310, 1200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundC"]
+shape = SubResource("ground_c")
+
+[node name="Visual" type="ColorRect" parent="GroundC"]
+offset_left = -290.0
+offset_top = -100.0
+offset_right = 290.0
+offset_bottom = 100.0
+color = Color(0.13, 0.24, 0.31, 1)
+
+[node name="GrassTop" type="ColorRect" parent="GroundC"]
+offset_left = -290.0
+offset_top = -100.0
+offset_right = 290.0
+offset_bottom = -86.0
+color = Color(0.34, 0.55, 0.5, 1)
+
+[node name="GroundD" type="StaticBody2D" parent="."]
+position = Vector2(3115, 1200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundD"]
+shape = SubResource("ground_d")
+
+[node name="Visual" type="ColorRect" parent="GroundD"]
+offset_left = -285.0
+offset_top = -100.0
+offset_right = 285.0
+offset_bottom = 100.0
+color = Color(0.13, 0.24, 0.31, 1)
+
+[node name="GrassTop" type="ColorRect" parent="GroundD"]
+offset_left = -285.0
+offset_top = -100.0
+offset_right = 285.0
+offset_bottom = -86.0
+color = Color(0.34, 0.55, 0.5, 1)
+
+[node name="PlatformPit1" type="StaticBody2D" parent="."]
+position = Vector2(905, 950)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformPit1"]
+shape = SubResource("platform")
+
+[node name="Visual" type="ColorRect" parent="PlatformPit1"]
+offset_left = -100.0
+offset_top = -20.0
+offset_right = 100.0
+offset_bottom = 20.0
+color = Color(1, 0.89, 0.93, 1)
+
+[node name="PlatformB1" type="StaticBody2D" parent="."]
+position = Vector2(1250, 960)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformB1"]
+shape = SubResource("platform")
+
+[node name="Visual" type="ColorRect" parent="PlatformB1"]
+offset_left = -100.0
+offset_top = -20.0
+offset_right = 100.0
+offset_bottom = 20.0
+color = Color(1, 0.89, 0.93, 1)
+
+[node name="PlatformB2" type="StaticBody2D" parent="."]
+position = Vector2(1550, 840)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformB2"]
+shape = SubResource("platform")
+
+[node name="Visual" type="ColorRect" parent="PlatformB2"]
+offset_left = -100.0
+offset_top = -20.0
+offset_right = 100.0
+offset_bottom = 20.0
+color = Color(1, 0.89, 0.93, 1)
+
+[node name="PlatformPit2" type="StaticBody2D" parent="."]
+position = Vector2(1910, 930)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformPit2"]
+shape = SubResource("platform")
+
+[node name="Visual" type="ColorRect" parent="PlatformPit2"]
+offset_left = -100.0
+offset_top = -20.0
+offset_right = 100.0
+offset_bottom = 20.0
+color = Color(1, 0.89, 0.93, 1)
+
+[node name="PlatformC1" type="StaticBody2D" parent="."]
+position = Vector2(2310, 900)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformC1"]
+shape = SubResource("platform")
+
+[node name="Visual" type="ColorRect" parent="PlatformC1"]
+offset_left = -100.0
+offset_top = -20.0
+offset_right = 100.0
+offset_bottom = 20.0
+color = Color(1, 0.89, 0.93, 1)
+
+[node name="PlatformPit3" type="StaticBody2D" parent="."]
+position = Vector2(2715, 940)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformPit3"]
+shape = SubResource("platform")
+
+[node name="Visual" type="ColorRect" parent="PlatformPit3"]
+offset_left = -100.0
+offset_top = -20.0
+offset_right = 100.0
+offset_bottom = 20.0
+color = Color(1, 0.89, 0.93, 1)
+
+[node name="Flower1" parent="." instance=ExtResource("3")]
+position = Vector2(350, 1030)
+
+[node name="Flower2" parent="." instance=ExtResource("3")]
+position = Vector2(905, 880)
+
+[node name="Flower3" parent="." instance=ExtResource("3")]
+position = Vector2(1250, 890)
+
+[node name="Flower4" parent="." instance=ExtResource("3")]
+position = Vector2(1550, 770)
+
+[node name="Flower5" parent="." instance=ExtResource("3")]
+position = Vector2(1910, 860)
+
+[node name="Flower6" parent="." instance=ExtResource("3")]
+position = Vector2(2150, 1030)
+
+[node name="Flower7" parent="." instance=ExtResource("3")]
+position = Vector2(2310, 830)
+
+[node name="Flower8" parent="." instance=ExtResource("3")]
+position = Vector2(2715, 870)
+
+[node name="Flower9" parent="." instance=ExtResource("3")]
+position = Vector2(2950, 1030)
+
+[node name="Flower10" parent="." instance=ExtResource("3")]
+position = Vector2(3100, 1030)
+
+[node name="FallZone" type="Area2D" parent="."]
+position = Vector2(1700, 1560)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FallZone"]
+shape = SubResource("fall_zone")
+
+[node name="LevelEnd" type="Area2D" parent="."]
+position = Vector2(3250, 1100)
+script = ExtResource("5")
+level_id = "level_02"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelEnd"]
+position = Vector2(0, -150)
+shape = SubResource("end")
+
+[node name="HeartFlag" type="Node2D" parent="LevelEnd"]
+script = ExtResource("11")
+
+[node name="Player" parent="." instance=ExtResource("2")]
+position = Vector2(100, 1000)
+is_female = true
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+limit_left = 0
+limit_top = -400
+limit_right = 3400
+limit_bottom = 1300
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="TouchControls" parent="UI" instance=ExtResource("4")]
+
+[node name="MenuButton" type="Button" parent="UI"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 190.0
+offset_bottom = 76.0
+text = "← Level"
+
+[node name="FlowerHud" type="Label" parent="UI"]
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -220.0
+offset_top = 26.0
+offset_right = -24.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 26
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.25, 0.1, 0.2, 0.8)
+theme_override_constants/outline_size = 8
+horizontal_alignment = 2
+text = "🌸 0 / 10"
+
+[node name="CompletePanel" type="PanelContainer" parent="UI"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -160.0
+offset_right = 260.0
+offset_bottom = 40.0
+
+[node name="VBox" type="VBoxContainer" parent="UI/CompletePanel"]
+theme_override_constants/separation = 16
+
+[node name="Headline" type="Label" parent="UI/CompletePanel/VBox"]
+theme_override_font_sizes/font_size = 32
+theme_override_colors/font_color = Color(0.72, 0.32, 0.46, 1)
+horizontal_alignment = 1
+text = "🌸 Level geschafft! 🌸"
+
+[node name="FlowersLine" type="Label" parent="UI/CompletePanel/VBox"]
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+text = "Du hast 0 von 10 Blüten gesammelt!"
+
+[node name="NextButton" type="Button" parent="UI/CompletePanel/VBox"]
+text = "➡️ Nächstes Level"
+
+[node name="HomeButton" type="Button" parent="UI/CompletePanel/VBox"]
+text = "🏠 Zurück nach Hause"

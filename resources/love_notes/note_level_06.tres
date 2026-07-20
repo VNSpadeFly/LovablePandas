@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="LoveNote" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/autoload/love_note.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "level_06_complete"
+requirement = 0
+requirement_value = 0
+requirement_string = "level_06"
+title = "Alpen und Berge"
+message = "Lass bald mal Wandern und auch in die Schweiz.
+Wir sollten davor etwas Kardio trainieren um da auch das volle Porgramm und volle Experience zu bekommen.
+Dann können wir Kühe oben in den Alpen sehen und vielleciht Ski oder so.
+Ich bin offen mit dir alles zu machen Baby."

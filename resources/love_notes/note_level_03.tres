@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="LoveNote" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/autoload/love_note.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "level_03_complete"
+requirement = 0
+requirement_value = 0
+requirement_string = "level_03"
+title = "Moving Objects hindern uns nicht"
+message = "Du hast die ersten drei Level geschafft!!! Sooooo gut.
+Mein Em Yêu giỏi thế!!
+Hats dir bislang Spaß gemacht?
+Drei Level gibts noch, hehe.
+Wie waren die bewegenden Plattformen?
+Siehe es wie die Umgebung von uns, immer am verändern. 
+Aber trotzdm schaffen wir alles.
+Mit dir habe ich das Gefühl ich schaffe alles Baby"
