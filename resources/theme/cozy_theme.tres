@@ -1,4 +1,11 @@
-[gd_resource type="Theme" format=3 uid="uid://cwsjt4gr83i2c"]
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://cwsjt4gr83i2c"]
+
+[ext_resource type="FontFile" path="res://assets/fonts/Nunito.ttf" id="font_base"]
+[ext_resource type="FontFile" path="res://assets/fonts/NotoColorEmoji.ttf" id="font_emoji"]
+
+[sub_resource type="FontVariation" id="font_default"]
+base_font = ExtResource("font_base")
+fallbacks = [ExtResource("font_emoji")]
 
 [sub_resource type="StyleBoxFlat" id="btn_disabled"]
 content_margin_left = 18.0
@@ -81,6 +88,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [resource]
+default_font = SubResource("font_default")
 Button/colors/font_color = Color(0.42, 0.18, 0.28, 1)
 Button/colors/font_disabled_color = Color(0.6, 0.5, 0.55, 1)
 Button/colors/font_hover_color = Color(0.42, 0.18, 0.28, 1)
