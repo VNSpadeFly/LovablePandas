@@ -4,6 +4,7 @@
 # Export output
 android/
 export/
+build/
 *.apk
 *.aab
 *.ipa
